@@ -40,6 +40,7 @@ spec:
       action: trigger:harness-custom-pipeline
       input:
         url: https://qa.harness.io/ng/account/zEaak-FLS425IEO7OLzMUg/module/idp-admin/orgs/default/projects/testdemo/pipelines/demo/pipeline-studio?storeType=INLINE
+        hidePipelineURLLog: true
         inputset:
           message: ${{ parameters.message }}
           message2: ${{ parameters.message2 }}
