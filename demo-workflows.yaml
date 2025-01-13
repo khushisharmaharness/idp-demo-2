@@ -30,6 +30,10 @@ spec:
             title: Ayn message
             description: Greetings of the day
             type: string
+        message2:
+            title: Ayn message 2
+            description: Greetings of the day 
+            type: string
   steps:
     - id: trigger
       name: Creating your react app
@@ -38,6 +42,7 @@ spec:
         url: https://qa.harness.io/ng/account/zEaak-FLS425IEO7OLzMUg/module/idp-admin/orgs/default/projects/testdemo/pipelines/demo/pipeline-studio?storeType=INLINE
         inputset:
           message: ${{ parameters.message }}
+          message2: ${{ parameters.message2 }}
         apikey: ${{ parameters.token }}
   # some outputs which are saved along with the job for use in the frontend
   output:
