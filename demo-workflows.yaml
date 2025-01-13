@@ -35,7 +35,7 @@ spec:
       name: Creating your react app
       action: trigger:harness-custom-pipeline
       input:
-        url: https://qa.harness.io/ng/account/zEaak-FLS425IEO7OLzMUg/module/idp-admin/orgs/default/projects/testdemo/pipelines/GitHub_repo_onboarding_demo"
+        url: https://qa.harness.io/ng/account/zEaak-FLS425IEO7OLzMUg/module/idp-admin/orgs/default/projects/testdemo/pipelines/demo/pipeline-studio?storeType=INLINE
         inputset:
           message: ${{ parameters.message }}
         apikey: ${{ parameters.token }}
