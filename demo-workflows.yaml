@@ -1,0 +1,46 @@
+##Example YAML
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+# some metadata about the Workflow itself
+metadata:
+  name: message-app
+  title: Create a new message
+  description: A Workflow to display a message
+  tags:
+    - nextjs
+    - react
+    - javascript
+# these are the steps which are rendered in the frontend with the form input
+spec:
+  owner: d.p@harness.io
+  type: service
+  parameters:
+    - title: Service Details
+      required:
+        - message
+      properties:
+        # This field is hidden but needed to authenticate the request to trigger the pipeline
+        # DO NOT Remove this field.
+        token:
+          title: Harness Token
+          type: string
+          ui:widget: password
+          ui:field: HarnessAuthToken
+        message:
+            title: Ayn message
+            description: Greetings of the day
+            type: string
+  steps:
+    - id: trigger
+      name: Creating your react app
+      action: trigger:harness-custom-pipeline
+      input:
+        url: https://qa.harness.io/ng/account/zEaak-FLS425IEO7OLzMUg/module/idp-admin/orgs/default/projects/testdemo/pipelines/GitHub_repo_onboarding_demo"
+        inputset:
+          message: ${{ parameters.message }}
+        apikey: ${{ parameters.token }}
+  # some outputs which are saved along with the job for use in the frontend
+  output:
+    links:
+      - title: Pipeline Details
+        url: ${{ steps.trigger.output.PipelineUrl }}
